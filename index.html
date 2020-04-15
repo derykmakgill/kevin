@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Kev Quirk - Blog</title>
+<link rel="shortcut icon" href="/images/favicon.png" />
+<style>/* Global variables for changing colours across the site */
+:root {
+    --accent: #226997;
+	--main: #333;
+	--light: #666;
+	--lighter: #f3f3f3;
+	--border: #e6e6e6;
+	--bg: #fff;
+}
+
+/* Define colours for auto dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+			--accent: #3493d1;
+			--main: #f3f3f3;
+			--light: #ececec;
+			--lighter: #666;
+			--border: #e6e6e6;
+			--bg: #333333;
+    }
+}
+
+/* Make the website responsive */
+@media screen and (max-width: 100%) {
+  .main, .header, .footer, .comment-notice{
+    width: 1000px;
+  }
+}
+
+.main, .comment-notice {
+  float: center;
+  width: 100%;
+	max-width: 1000px;
+  padding: 0 1em;
+	margin: 0 auto;
+}
+
+.header{
+	float: center;
+	width: 100%;
+  max-width: 1300px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+.footer {
+	float: center;
+	width: 100%;
+  max-width: 1000px;
+	margin: 0 auto;
+	margin-top: 6em;
+	text-align: center;
+	border-top: 1px solid var(--border);
+}
+
+.footer p {
+  font-size: 0.75em;
+}
+
+p.sitelogo {
+	font-family: "fira";
+	font-size: 1.5em;
+	display: inline-block;
+	float: left;
+	margin: 0 auto;
+}
+
+p.menu {
+	display: inline-block;
+	float: right;
+}
+
+/* Header Cursor */
+span.header-ticker {
+    animation-name: tick;
+    animation-duration: 1s;
+    animation-timing-function: steps(1, end);
+    animation-iteration-count: infinite;
+    color: var(--accent);
+    font-size: 1.8rem;
+}
+
+@keyframes tick {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+a.sitelogo, a.sitelogo:hover, a.sitelogo:visited, a.sitelogo:active {
+	border: none;
+}
+
+#home-about {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+  max-width: 1000px;
+  margin-top: 5em;
+}
+
+ul.social {
+	list-style: none;
+	margin-bottom: 4em;
+	margin-top: -1em;
+	padding-left: 0;
+}
+
+ul.social li {
+	display: inline;
+	padding-right: 10px;
+}
+
+ul.social li a, a:visited {
+	border: none;
+}
+
+ul.social li a:hover, a:active {
+	opacity: 0.5;
+	transition: 0.2s;
+}
+
+
+/* Format Navigation */
+.menubtn {
+	border: 1px solid var(--main);
+  color: var(--main);
+  padding: 0.5em 0.5em;
+	cursor: pointer;
+	border-radius: 1.5em;
+	transition: 0.2s;
+	white-space: nowrap;
+	font-family: "fira";
+}
+
+.menubtn:hover {
+	background: var(--lighter);
+	color: var(--main);
+	text-decoration: none;
+}
+
+a.menubtn {
+	color: var(--main);
+  font-size: 0.8em
+}
+
+a.menubtn:hover, a.menubtn:focus, a.menubtn:active {
+	border-bottom: 1px solid;
+}
+
+a.post-link {
+	border: none;
+}
+
+a.post-link:hover, a.post-link:visited, a.post-link:active {
+	border-bottom: 2px dotted;
+}
+
+ul.menu {
+	list-style: none;
+	font-family: "fira";
+	line-height: 1.7em;
+}
+
+.active {
+	background-color: var(--light);
+	color: var(--bg) !important;
+}
+
+/* Format the main body of the website */
+body, .header {
+	background: var(--bg);
+	color: var(--main);
+	line-height: 1.5;
+  font-size: calc(15px + 4 * (100vw / 1500));
+	font-family: "merriweather";
+}
+
+/* Typography */
+p {
+	margin-bottom: 1.5em;
+}
+
+p.meta {
+  font-size: 0.9em;
+  font-style: italic;
+  color: var(--light);
+  margin-top: -0.6em;
+}
+
+p.home-meta {
+	font-size: 0.9em;
+	font-style: italic;
+	color: var(--light);
+	margin-top: -0.6em;
+	margin-bottom: 5em;
+  }
+
+figcaption {
+	font-size: 0.8em;
+	font-style: italic;
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	font-family: "fira";
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h1.title {
+	font-size: 2.1em;
+	line-height: 1em;
+	margin: 0 0 .4em 0;
+}
+
+h2 {
+	font-size: 1.6em;
+	margin-top: 2em;
+}
+
+h3 {
+	font-size: 1.4em;
+}
+
+h4 {
+	font-size: 1.2em;
+}
+
+h5 {
+	font-size: 1.1em;
+}
+
+h6 {
+	font-size: 1em;
+}
+
+i.hash {
+  font-size: 0.8em;
+  color: var(--light);
+}
+
+blockquote {
+    margin-left: 2em;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    padding: .4rem .8rem;
+    border-left: .35rem solid var(--accent);
+    color: var(--light);
+    font-style: italic;
+}
+
+cite {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+code, kbd, tt, var {
+  font-family: 'SF Mono','Segoe UI Mono','Roboto Mono',Menlo,Courier,monospace;
+  color: var(--main);
+  line-height: 1.25;
+}
+
+/* Format the images */
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+img.header-logo {
+	float: clear;
+}
+
+/* Format hyperlinks & buttons */
+a, a:visited {
+	color: var(--main);
+	text-decoration: none;
+	border-bottom: 2px solid;
+}
+
+a:hover, a:focus, a:active {
+	text-decoration: none;
+	border-bottom: 2px dotted;
+}
+
+.button {
+	padding: 0.5em .5em;
+	margin: 0 .5em 0 0;
+	border: 1px solid var(--main);
+	border-radius: 4em;
+	color: var(--main);
+	transition: 0.5s;
+	line-height: 3rem;
+	white-space: nowrap;
+}
+
+.button:hover, .button:active, .button:focus, .button:visited {
+	background: var(--lighter);
+	color: var(--main);
+	text-decoration: none;
+}
+
+p.blue-banner {
+	padding: 20px 30px;
+	background: #226997;
+	color: #fff;
+}
+
+/* Other stuff */
+
+.comment-notice {
+    border-top: 1px solid var(--border);
+}</style>
+<link rel='stylesheet'  href="fonts/merriweather/merriweather.css" type='text/css' media='all' />
+<link rel='stylesheet'  href="fonts/lineawesome/css/line-awesome.min.css" type='text/css' media='all' />
+<link rel='stylesheet'  href="fonts/fira/fira.css" type='text/css' media='all' />
+
+<meta property="og:locale" content="en_GB" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Kev Quirk - Blog" />
+<meta property="og:description" content="Kev Quirk is a cyber security professional from the UK. He writes his thoughts and experiences down in this blog." />
+<meta property="og:url" content="https://kevq.uk" />
+<meta property="og:site_name" content="Kev Quirk" />
+</head>
+
+<!-- *** START HEADER *** -->
+<div class="header">
+
+	<p class="sitelogo"><a class="sitelogo" href="/index.html" rel="home">Kev Quirk</a><span class="header-ticker">|</span></p>
+
+	<p class="menu"><a class="menubtn" href="menu.html">Menu</a></p>
+
+<div id="home-about" class="h-card">
+		<img class="header-logo u-photo" alt="Kev Quirk" style="padding-bottom:30px;" src="images/kq-avatar.svg">
+		<p>
+			Hi, I'm
+			<a class="u-url u-uid" href="https://kevq.uk">
+				<span class="p-name">Kev Quirk</span>
+			</a>.
+			<span class="p-note">
+				I'm a cyber security professional and privacy advocate from <span class="p-locality">North West England</span>.
+				I enjoy <span class="p-category">FOSS</span>,
+				<a class="p-category" href="/category/artwork/">drawing</a>,
+				<a class="p-category" href="/category/motorbikes/">motorbikes</a>,
+				and <a class="p-category" href="/category/fishkeeping">fishkeeping</a>.
+			</span>
+		</p>
+		<ul class="social">
+			<li>
+				<a class="u-email" title="Email" rel="me" href="mailto:email@me.kevq.uk"><i class="las la-envelope-open-text la-2x"></i></a>
+			</li>
+			<li>
+				<a class=" u-url" title="Mastodon" rel="me" href="https://fosstodon.org/@kev"><i class="lab la-mastodon la-2x"></i></a>
+			</li>
+			<li>
+				<a class="u-url" title="Twitter" rel="me" href="https://twitter.com/kevquirk"><i class="lab la-twitter la-2x"></i></a>
+			</li>
+			<li>
+				<a class="u-url" title="Keybase" rel="me" href="https://keybase.io/kevq"><i class="lab la-keybase la-2x"></i></a>
+			</li>
+		</ul>
+</div>
+
+</div>
+<!-- *** END HEADER *** -->
+
+<body>
+<div class="main">
+
+<!-- *** START PAGE CONTENT *** -->
+
+<h1 class="title"><a class="post-link" href="why-i-dont-use-a-static-site-generator/index.html">Why I Don't Use A Static Site Generator</a></h1>
+<p class="home-meta">Posted on 08th April 2020</p>
+
+<h1 class="title"><a class="post-link" href="drawing-a-sugar-skull-in-procreate/index.html">Drawing A Sugar Skull In Procreate</a></h1>
+<p class="home-meta">Posted on 06th April 2020</p>
+
+<h1 class="title"><a class="post-link" href="why-having-a-full-post-rss-feed-is-a-good-idea/index.html">Why Having A Full Post RSS Feed Is A Good Idea</a></h1>
+<p class="home-meta">Posted on 04th April 2020</p>
+
+<!-- *** END PAGE CONTENT *** -->
+
+</div>
+</body>
+
+<div class="footer">
+	<p>All work licensed under <i class="la la-creative-commons la-lg"></i><i class="lab la-creative-commons-by la-lg"></i><i class="lab la-creative-commons-sa la-lg"></i> unless otherwise stated.<br>
+
+	<a href="/disclaimer.html">Disclaimer</a> | <a href="/license-information.html">License Info</a> | <a href="/privacy.html">Privacy</a> | <a href="/buy-me-a-coffee.html">Coffee?</a></p>
+</div>
+</html>
